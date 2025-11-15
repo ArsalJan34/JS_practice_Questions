@@ -6,7 +6,7 @@ function calculateHypotenuse(base, perpendicular) {
         return num * num;
     }
 
-    let hypotenuse = Math.sqrt(
+    let hypotenuse = math.sqrt(
         calculateSquare(base) + calculateSquare(perpendicular)
     );
 
