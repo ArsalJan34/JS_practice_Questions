@@ -1,7 +1,15 @@
 function isPalindrome(str) {
-    let clean = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-    let reverse = clean.split("").reverse().join("");
-    return clean === reverse;
+    str = str.toLowerCase();
+    let reversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    if (str === reversed) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
 console.log(isPalindrome("madam"));
 console.log(isPalindrome("hello"));
