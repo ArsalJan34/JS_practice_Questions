@@ -1,37 +1,71 @@
-var mcqsQuestions = {
-  question: "What is real name of Captain America?",
-  Options : [ "Steve Rogers", "Bucky Barnes", "Tony stark", "Bruce banner"],
-  answer: "Steve Rogers"
+// mcqsQuestions[0].question
+var mcqsQuestions = [
+  {
+    question: "JS IS EASY OR NOT",
+    options: ["yes", "no", "may be", "very easy"],
+    answers: "a",
+  },
+  {
+    question: "Html is EASY",
+    options: ["yes", "no", "may be", "very easy"],
+    answers: "a",
+  },
+  {
+    question: "CSS is EASY",
+    options: ["yes", "no", "may be", "very easy"],
+    answers: "a",
+  },
+];
+
+var score = 0; //start
+var answerOptions = []; //declare answer store
+
+function showQuiz() {
+  var countScore = 100 / mcqsQuestions.length; // count dynmaically none question score
+  for (var i = 0; i < mcqsQuestions.length; i++) {
+    var userInput = prompt(`
+            Question ${i + 1} : ${mcqsQuestions[i].question}  ?
+            a) ${mcqsQuestions[i].options[0]}
+            b) ${mcqsQuestions[i].options[1]}
+            c) ${mcqsQuestions[i].options[2]}
+            d) ${mcqsQuestions[i].options[3]}
+            `);
+
+    answerOptions.push(userInput);
+
+    if (userInput.toLowerCase() == mcqsQuestions[i].answers) {
+      score = score + countScore;
+    }
+  }
+  alert("Your total score is " + score.toFixed(0));
+  showOutput();
 }
-var score = 0;
-var answerOptions = [];
-function ShowQuiz(){
-  var countScore = 100 / mcqsQuestions.Options.length;
-//   var quizContainer = document.getElementById("quizContainer");
-//   var quesitonElement = document.createElement("h3");
-//   quesitonElement.innerText = mcqsQuestions.question;
-//   quizContainer.appendChild(quesitonElement);
-//   for(var i=0; i<mcqsQuestions.Options.length; i++){
-//     var option = document.createElement("input");
-//     option.type = "radio";
-//     option.name = "quizOption";
-//     option.value = mcqsQuestions.Options[i];
-//     option.id = "option"+i;
-//     var label = document.createElement("label");
-//     label.htmlFor = "option"+i;
-//     label.innerHTML=mcqsQuestions.Options[i];
-//     quizContainer.appendChild(option);
-//     quizContainer.appendChild(label);
-//     quizContainer.appendChild(document.createElement("br"));
-//     answerOptions.push(option);
-//   }
-// }
-for(var i=0; i < mcqsQuestions.length; i++){
-  var userInput = prompt(
-    ` Question: ${mcqsQuestions[i].Options[0]}
-     Question: ${mcqsQuestions[i].Options[1]}
-     Question: ${mcqsQuestions[i].Options[2]}
-     Question: ${mcqsQuestions[i].Options[3]}
-    `);
+
+function showOutput() {
+  for (var i = 0; i < mcqsQuestions.length; i++) {
+    document.writeln(`
+
+<div class="card" style="width:50%;margin:auto;margin-top:20px">
+
+  <div class="card-body">
+    <h5 class="card-title">Question No : ${i + 1}) ${
+      mcqsQuestions[i].question
+    }</h5>
+    <p class="card-text">
+     <ul>
+      <li>${mcqsQuestions[i].options[0]}</li>
+      <li>${mcqsQuestions[i].options[1]}</li>
+      <li>${mcqsQuestions[i].options[2]}</li>
+      <li>${mcqsQuestions[i].options[3]}</li>
+    </ul>
+     <h3>Correct Option : ${mcqsQuestions[i].answers}</h3>
+    <h3>your Option : ${answerOptions[i]}</h3>
+    </p>
+
+  </div>
+</div>
+     `);
+  }
 }
-ShowQuiz()
+
+showQuiz();
