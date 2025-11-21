@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>Javascript Practice Questions</title>
+  <title>Scroll Event Example</title>
+
+  <style>
+    body {
+      height: 2000px;
+      /* So you have space to scroll */
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
 </head>
 
 <body>
-  <script src="quizapp.js"></script>
+
+  <h1>Scroll the page to see output in console</h1>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      let scrollAmount = window.scrollY;
+      console.log("You scrolled:", scrollAmount);
+    });
+  </script>
+
 </body>
+
 </html>
